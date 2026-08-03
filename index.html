@@ -573,7 +573,10 @@ body{font-family:'Poppins',sans-serif;background:#f4f6f8;color:#1a1a2e;min-heigh
 <div class="mobile-nav" id="mobileNav" style="display:none"></div>
 
 <script>
-var API = localStorage.getItem('al_api') || 'http://localhost:8090';
+var defaultApi = (window.location.hostname === 'localhost' || window.location.hostname === '127.0.0.1')
+  ? 'http://localhost:8090'
+  : 'https://agrilink-backend-gc0f.onrender.com';
+var API = localStorage.getItem('al_api') || defaultApi;
 var SKILLS = ['Ploughing','Harvesting','Transplanting','Bundling','Irrigation','Weeding','Spraying','Sowing','Pruning','Driving'];
 
 var token = localStorage.getItem('al_t') || '';
